@@ -1,0 +1,48 @@
+<ion-menu type="overlay" content-id="main-content">
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>Budget Summary</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content >
+    <ion-card class="ion-no-padding">
+      <ion-card-header>
+        <ion-card-subtitle> <b><ion-icon name="stats-chart" class="ion-padding-end"></ion-icon>Variable Expenses</b>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><ion-icon name="fast-food" class="ion-padding-start ion-padding-end"></ion-icon>Food</p>
+        <p><ion-icon name="car" class="ion-padding-start ion-padding-end"></ion-icon>Gasoline</p>
+        <p><ion-icon name="heart" class="ion-padding-start ion-padding-end"></ion-icon>Self-Care</p>
+        <p><ion-icon name="person" class="ion-padding-start ion-padding-end"></ion-icon>Personal</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="ion-no-padding">
+      <ion-card-header>
+        <ion-card-subtitle> <b><ion-icon name="stats-chart" class="ion-padding-end"></ion-icon>Fixed Expenses</b>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><ion-icon name="fast-food" class="ion-padding-start ion-padding-end"></ion-icon>Rent</p>
+        <p><ion-icon name="car" class="ion-padding-start ion-padding-end"></ion-icon>Water District</p>
+        <p><ion-icon name="heart" class="ion-padding-start ion-padding-end"></ion-icon></p>
+        <p><ion-icon name="person" class="ion-padding-start ion-padding-end"></ion-icon>Personal</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header [translucent]="true">
+    <app-header-navigation></app-header-navigation>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <app-cashflow></app-cashflow>
+  </ion-content>
+</div>
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer> -->

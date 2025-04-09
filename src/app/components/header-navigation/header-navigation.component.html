@@ -1,0 +1,31 @@
+<ion-toolbar color="secondary">
+  <!-- <ion-menu-toggle> -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title><b>Moneytor</b></ion-title>
+  <!-- </ion-menu-toggle> -->
+  
+
+
+  <ion-buttons slot="end" class="ion-margin-end">
+    <ion-button [color]="selection=='Cashflow' ? 'light' : 'secondary'" shape="round" fill="solid"
+      (click)="toggleNavigation('Cashflow')">
+      <ion-icon name="wallet-outline" class="button-icon-custom-padding resize-on-mobile"></ion-icon>
+      <span class="button-text hide-on-mobile">Cashflow</span>
+    </ion-button>
+    <ion-button [color]="selection=='Savings' ? 'light' : 'secondary'" shape="round" fill="solid"
+      (click)="toggleNavigation('Savings')">
+      <ion-icon name="cash-outline" class="button-icon-custom-padding resize-on-mobile"></ion-icon>
+      <span class="button-text hide-on-mobile">Savings</span>
+    </ion-button>
+
+    <ion-button class="ion-padding-start" fill="clear" shape="round">
+      <ion-avatar class="profile-size">
+        <img *ngIf="!showDefaultAvatar" [src]="`assets/profile-pictures/${profile_filename}`" alt="Profile"
+          (error)="useDefaultImage($event)" />
+        <ion-icon *ngIf="showDefaultAvatar" name="person-circle-outline" class="avatar-fallback"></ion-icon>
+      </ion-avatar>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
