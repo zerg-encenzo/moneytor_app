@@ -1,0 +1,68 @@
+ion-content {
+    --offset-bottom: auto !important; // Override potential safe area issues if footer is translucent
+}
+
+// The main wrapper div inside ion-content
+.content-wrapper {
+    display: flex; // Use flexbox
+    flex-direction: column; // Stack children vertically
+    height: 100%; // Take full height of the ion-content scroll area
+    padding: 10px; // Optional: Add padding around the content
+    box-sizing: border-box; // Include padding in height calculation
+}
+
+// Target the row/col containing the card that should expand
+.expanding-row {
+    flex-grow: 1; // Allow this row to grow and take remaining space
+    display: flex; // Make the row a flex container too (important for the column)
+    flex-direction: column; // Stack contents vertically (the column)
+    min-height: 0; // Crucial for flex children in Firefox/Safari to shrink properly if needed
+}
+
+.expanding-col {
+    flex-grow: 1; // Allow the column to grow within the row
+    display: flex; // Make the column a flex container (important for the card)
+    flex-direction: column; // Stack contents vertically (the card)
+    margin-bottom: 16px;
+    min-height: 0; // Crucial for flex children
+}
+
+// Style the expanding card itself
+.expanding-card {
+    flex-grow: 1; // Allow the card to grow within the column
+    display: flex; // Use flexbox for card's internal layout
+    flex-direction: column; // Stack header and content vertically
+    min-height: 0; // Crucial for flex children
+}
+
+// Style the content area within the expanding card
+.expanding-card ion-card-content.expanding-content {
+    flex-grow: 1; // Allow content area to grow within the card
+    overflow-y: auto; // IMPORTANT: Add vertical scrollbar if content overflows
+}
+
+// --- Optional: Add some base styling if needed ---
+ion-card-header {
+    padding-bottom: 5px; // Adjust spacing
+}
+
+.fab-button-padding {
+    @media (max-width: 500px) {
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+
+    padding-right: 24px;
+    padding-bottom: 24px;
+}
+
+ion-modal {
+    @media (max-width: 500px) {
+        --width: 92%;
+        --height: 62%;
+    }
+    --height: 55%;
+    --width: 50%;
+    --border-radius: 5px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
