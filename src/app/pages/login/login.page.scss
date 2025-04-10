@@ -1,0 +1,28 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.adaptive-card {
+    width: 28%;
+    padding: 10px;
+}
+
+@media (max-width: 1000px) {
+    .adaptive-card {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .adaptive-card {
+        width: 80%;
+    }
+}
+
+.required::after {
+    content: " *";
+    color: red;
+}

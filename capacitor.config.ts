@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'ionic.moneytorappv2',
-  appName: 'moneytorappv2',
+  appId: 'ionic.moneytor',
+  appName: 'moneytor',
   webDir: 'www'
 };
 
