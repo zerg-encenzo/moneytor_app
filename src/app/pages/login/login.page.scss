@@ -5,24 +5,11 @@
     height: 100%;
 }
 
-.adaptive-card {
-    width: 28%;
-    padding: 10px;
-}
-
-@media (max-width: 1000px) {
-    .adaptive-card {
-        width: 50%;
-    }
-}
-
-@media (max-width: 600px) {
-    .adaptive-card {
-        width: 80%;
-    }
-}
-
-.required::after {
-    content: " *";
-    color: red;
+.login-card {
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

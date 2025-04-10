@@ -37,6 +37,11 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  validateUsernameOrPassword() {
+    this.usernameHelperText = this.username === '' ? 'Username is required' : '';
+    this.passwordHelperText = this.password === '' ? 'Password is required' : '';
+  }
+
   login() {
     if (this.username === '') {
       this.usernameHelperText = 'Username is required';
@@ -53,7 +58,7 @@ export class LoginPage implements OnInit {
           next: (response) => {
             // Handle successful login
             this.toast.success('Login successful!');
-            
+
             // Redirect to home/dashboard
             this.router.navigate(['/home']).then(() => {
               this.loader.dismiss(); // Dismiss the loader
