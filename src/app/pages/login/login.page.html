@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-card-title style="text-align: center;"><b>Moneytor</b> Login</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Username -->
+        <ion-input placeholder="Enter email address." type="text" fill="solid" label-placement="stacked" color="secondary" [(ngModel)]="username" [required]="true"
+          fill="outline" [errorText]="usernameHelperText" (ionBlur)="validateUsernameOrPassword()">
+          <div slot="label">Username <ion-text color="danger"><b>*</b></ion-text></div>
+        </ion-input>
+        <!-- Password -->
+        <div style="padding-top: 24px;">
+          <ion-input labelPlacement="stacked" fill="outline" [type]="showPassword ? 'text' : 'password'" placeholder="Enter password." color="secondary" [(ngModel)]="password"
+            [required]="true" [errorText]="passwordHelperText" (ionBlur)="validateUsernameOrPassword()">
+            <div slot="label">Password <ion-text color="danger"><b>*</b></ion-text></div>
+            <ion-button fill="clear" slot="end" aria-label="Show/hide" (click)="showPassword = !showPassword">
+              <ion-icon slot="icon-only" [name]="showPassword? 'eye-outline' : 'eye-off-outline'" aria-hidden="true" color="medium" ></ion-icon>
+            </ion-button>
+          </ion-input>
+        </div>
+
+        <!-- Login Button -->
+        <div style="margin-top: 20px; text-align: center;">
+            <ion-button expand="block" color="secondary" (click)="login()"><ion-icon name="log-in-outline" class="button-icon-custom-padding"></ion-icon>Login</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

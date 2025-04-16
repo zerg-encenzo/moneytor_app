@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal, IonCardContent, IonContent, IonCardTitle, IonCardSubtitle, IonCardHeader, IonCard, IonCol, IonRow, IonIcon, IonFabButton, IonFabList, IonFab, IonList, IonLabel, IonButton, IonListHeader, IonItem, IonInput, IonText, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonButtons, IonTitle, IonFooter } from "@ionic/angular/standalone";
 import { OverlayEventDetail } from '@ionic/core/components';
 import { FormsModule } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 interface Expense {
   Type: string;
@@ -37,35 +38,37 @@ export class CashflowComponent implements OnInit {
     }
   ]
 
-  // Variable to hold the selected Type value
-  selectedExpenseType: string | null = null; // Initialize as null
+  selectedExpenseType: string | null = null;  // Variable to hold the selected Type value
+  selectedCategory: string | null = null;     // Variable to hold the selected Category value (optional but good practice)
+  availableCategories: string[] = [];         // Variable to hold the categories available based on the selected type
 
-  // Variable to hold the selected Category value (optional but good practice)
-  selectedCategory: string | null = null;
+  constructor(
+    private apiService: ApiService
+  ) { }
 
-  // Variable to hold the categories available based on the selected type
-  availableCategories: string[] = [];
+  ngOnInit() {
+    this.getExpenseCategories();
+  }
 
-  constructor() { }
-
-  ngOnInit() { }
-
-  addExpense() {
-
+  /**
+   * 
+   * @param event 
+   */
+  getExpenseCategories() {
+    this.apiService.getData('/Moneytor/ExpenseCategory').subscribe((res: any) => {
+      console.log(res);
+    });
   }
 
   // Function called when the 'Type' selection changes
   onTypeChange(event: any) {
-    // Find the expense object matching the selected type
-    const selectedExpense = this.expenses.find(exp => exp.Type === this.selectedExpenseType);
-    // Update the available categories
-    if (selectedExpense) {
+    const selectedExpense = this.expenses.find(exp => exp.Type === this.selectedExpenseType);   // Find the expense object matching the selected type
+    if (selectedExpense) {            // Update the available categories
       this.availableCategories = selectedExpense.Categories;
     } else {
-      this.availableCategories = []; // Clear categories if no type is selected
+      this.availableCategories = [];  // Clear categories if no type is selected
     }
-    // IMPORTANT: Reset the category selection whenever the type changes
-    this.selectedCategory = null;
+    this.selectedCategory = null;     // IMPORTANT: Reset the category selection whenever the type changes
   }
 
   cancel() {

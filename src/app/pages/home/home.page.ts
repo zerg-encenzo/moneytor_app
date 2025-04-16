@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonFab, IonFabButton, IonFabList, IonIcon, IonButtons, IonMenu , IonMenuButton, IonButton, IonMenuToggle, IonCard, IonCardHeader, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
-import { HeaderNavigationComponent } from "../components/header-navigation/header-navigation.component";
-import { CashflowComponent } from "../components/cashflow/cashflow.component";
+import { HeaderNavigationComponent } from "../../components/header-navigation/header-navigation.component";
+import { CashflowComponent } from "../../components/cashflow/cashflow.component";
 
 @Component({
   selector: 'app-home',
