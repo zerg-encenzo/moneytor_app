@@ -37,19 +37,14 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  validateUsernameOrPassword() {
+  async validateUsernameOrPassword(): Promise<boolean> {
     this.usernameHelperText = this.username === '' ? 'Username is required' : '';
     this.passwordHelperText = this.password === '' ? 'Password is required' : '';
+    return this.username !== '' && this.password !== '';
   }
 
-  login() {
-    if (this.username === '') {
-      this.usernameHelperText = 'Username is required';
-    }
-    else if (this.password === '') {
-      this.passwordHelperText = 'Password is required';
-    }
-    else {
+  async login() {
+    if(await this.validateUsernameOrPassword()){
       this.loader.show('Logging in...').then(() => {
         this.usernameHelperText = '';
         this.passwordHelperText = '';
@@ -58,6 +53,7 @@ export class LoginPage implements OnInit {
           next: (response) => {
             // Handle successful login
             this.toast.success('Login successful!');
+            console.log(response); // Log the response for debugging
 
             // Redirect to home/dashboard
             this.router.navigate(['/home']).then(() => {
@@ -66,10 +62,14 @@ export class LoginPage implements OnInit {
           },
           error: (err: HttpErrorResponse) => {
             this.loader.dismiss(); // Dismiss the loader
-            this.toast.error(err.error || 'Login failed.');   // Display the error to the user (you can use Ionic Toast or Alert)
+            let errorMessage = (err.error == "undefined") ? "Login Failed." : err.error;
+            this.toast.error(errorMessage);   // Display the error to the user (you can use Ionic Toast or Alert)
           }
         });
       });
+    }
+    else {
+      this.toast.error('Please fill in all required fields.');
     }
   }
 }

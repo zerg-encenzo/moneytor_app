@@ -55,7 +55,7 @@ export class CashflowComponent implements OnInit {
    * @param event 
    */
   getExpenseCategories() {
-    this.apiService.getData('/api/ExpenseCategory').subscribe((res: any) => {
+    this.apiService.getData('/Moneytor/ExpenseCategory').subscribe((res: any) => {
       console.log(res);
     });
   }
