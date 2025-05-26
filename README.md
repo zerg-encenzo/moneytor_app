@@ -1,5 +1,5 @@
-# moneytor_web
-Repository containing all the source code and necessary files for the Moneytor Web Project.
+# moneytor
+Repository containing all the front-end source code and necessary files for the Moneytor cross-platform (Web and Android) Project.
 
 February 12, 2025:
 First Update in my repository!
