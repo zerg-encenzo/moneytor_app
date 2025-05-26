@@ -1,5 +1,7 @@
 # moneytor
-Repository containing all the front-end source code and necessary files for the Moneytor cross-platform (Web and Android) Project.
+Repository containing all the front-end source code and necessary files for the Moneytor Project (Web and Android).
+
+Moneytor is a cross-platform personal finance management app that allows users to organize personal finances, set budgets, schedule payments, record savings, and track expenses. The app is customizable according to users' specific needs.
 
 February 12, 2025:
 First Update in my repository!
