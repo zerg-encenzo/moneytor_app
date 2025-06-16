@@ -1,4 +1,6 @@
 # moneytor
+June 16, 2025 - This repository, including all source code, has been deprecated. Kindly redirect to https://github.com/zerg-encenzo/moneytor-finance-app.git for the new repository of the Moneytor Finance app front-end code.
+
 Moneytor is a cross-platform personal finance management app that allows users to organize personal finances, set budgets, schedule payments, record savings, and track expenses. The app is customizable according to users' specific needs.
 
 February 12, 2025:
